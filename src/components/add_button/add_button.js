@@ -1,8 +1,11 @@
 import React from 'react';
 
-function AddButton() {
+function AddButton({setShowForm}) {
+  function showForm () {
+    setShowForm(true);
+  }
   return (
-    <button>Добавить</button>
+    <button onClick = {showForm}>Добавить</button>
   );
 }
 

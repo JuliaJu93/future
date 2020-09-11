@@ -1,7 +1,8 @@
 .addForm {
     background: rgb(255, 218, 192);
     border-radius: 5px;
-    padding: 0.5rem;
+    padding: 0.8rem;
+    margin: 1rem;
 }
 
 .addForm div {
@@ -14,4 +15,9 @@
     border-radius: 2px;
     border: none;
     height: 1.5rem;
+}
+
+input[type=submit] {
+    width: 100%;
+    margin: 0.5rem 0;
 }

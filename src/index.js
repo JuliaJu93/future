@@ -13,14 +13,14 @@ import IndicatorLoading from './components/indicator_loading/indicator_loading';
 function Main() {
   const [dataForTable, setDataForTable] = useState('');
   const [idicatorLoading, setIndicatorLoading] = useState(false);
-  const [form, setForm] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   return (
     <main>
         {!dataForTable && !idicatorLoading && <DataSelection setDataForTable={setDataForTable} setIndicatorLoading={setIndicatorLoading}/>}
         {idicatorLoading && <IndicatorLoading />}
-        <div>
-          <AddButton setForm={setForm}/>
-          <Form />
+        <div className="container">
+          {!showForm &&<AddButton setShowForm={setShowForm}/>}
+          {showForm && <Form />}
           <Filter />
           <Table />
         </div>

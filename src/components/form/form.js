@@ -1,16 +1,57 @@
-import React from 'react';
+import React, {useState} from 'react';
+
+import {showButtonOfForm} from './show_button_of_form';
+import {addInTable} from './add_in_table';
 
 import './form.css'
 
 function Form() {
+  const [id, setId] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [showButtonAdd, setShowButtonAdd] = useState(false);
+
+  function handleChange(event) {
+    let value = event.target.value;
+    switch (event.target.name) {
+      case 'Id':
+        setId(value);
+        break;
+      case 'FirstName':
+        setFirstName(value);
+        break;
+      case 'LastName':
+        setLastName(value);
+        break;
+      case 'Email':
+        setEmail(value);
+        break;
+      case 'Phone':
+        setPhone(value);
+        break;
+    }
+    if (id && firstName && lastName && email && phone) {
+      showButtonOfForm(setShowButtonAdd);
+    }
+  }
+
+  function handleSubmit (event) {
+    event.preventDefault();
+    addInTable ();
+  }
+
   return (
-    <form className="addForm">
+    <form className="addForm" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="id"> id: </label>
           <input
             type="text"
             id="id"
-            name="id"
+            name="Id"
+            required
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -18,7 +59,9 @@ function Form() {
           <input
             type="text"
             id="firstName"
-            name="firstName"
+            name="FirstName"
+            required
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -26,7 +69,9 @@ function Form() {
           <input
             type="text"
             id="lastName"
-            name="lastName"
+            name="LastName"
+            required
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -34,7 +79,9 @@ function Form() {
           <input
             type="email"
             id="email"
-            name="email"
+            name="Email"
+            required
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -42,12 +89,14 @@ function Form() {
           <input
             type="phone"
             id="phone"
-            name="phone"
+            name="Phone"
+            required
+            onChange={handleChange}
           />
         </div>
-        <div>
+        {showButtonAdd && <div>
           <input type="submit" value="Добавить в таблицу" />
-        </div>
+        </div>}
       </form>
     );
 }
