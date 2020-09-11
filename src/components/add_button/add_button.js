@@ -5,7 +5,7 @@ function AddButton({setShowForm}) {
     setShowForm(true);
   }
   return (
-    <button onClick = {showForm}>Добавить</button>
+    <button onClick = {showForm}>Добавить данные в таблицу</button>
   );
 }
 

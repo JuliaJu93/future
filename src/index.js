@@ -22,7 +22,7 @@ function Main() {
           {!showForm &&<AddButton setShowForm={setShowForm}/>}
           {showForm && <Form />}
           <Filter />
-          <Table />
+          <Table dataForTable={dataForTable}/>
         </div>
     </main>
   );

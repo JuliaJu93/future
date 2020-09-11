@@ -1,3 +1,3 @@
-export function showButtonOfForm (setShowButtonAdd) {
-    setShowButtonAdd(true);
+export function showButtonOfForm (setShowButtonAdd, value) {
+    setShowButtonAdd(value);
 }

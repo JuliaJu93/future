@@ -1,30 +1,15 @@
 import React from 'react';
 
-function Table() {
-  return (
-    <table>
-        <thead>
-            <tr>
-                <th>
-                    id
-                </th>
-                <th>
-                    first name
-                </th>
-                <th>
-                    last name
-                </th>
-                <th>
-                    email
-                </th>
-                <th>
-                    phone
-                </th>
-            </tr>
-        </thead>
-        <tbody>
+import './table.css';
 
-        </tbody>
+import TableHead from './table_head';
+import TableBody from './table_body';
+
+function Table({dataForTable}) {
+  return (
+    <table className = "table">
+        <TableHead />
+        <TableBody dataForTable={dataForTable}/>
     </table>
   );
 }

@@ -33,7 +33,10 @@ function Form() {
         break;
     }
     if (id && firstName && lastName && email && phone) {
-      showButtonOfForm(setShowButtonAdd);
+      showButtonOfForm(setShowButtonAdd, true);
+    }
+    else {
+      showButtonOfForm(setShowButtonAdd, false)
     }
   }
 
