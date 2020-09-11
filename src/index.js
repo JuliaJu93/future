@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
@@ -10,15 +10,16 @@ import Filter from './components/filter/filter.js';
 import Table from './components/table/table.js';
 
 function Main() {
+  const [dataForTable, setDataForTable] = useState('');
   return (
     <main>
-        <DataSelection />
-        <div>
+        {!dataForTable && <DataSelection setDataForTable={setDataForTable}/>}
+        {dataForTable && <div>
           <AddButton />
           <Form />
           <Filter />
           <Table />
-        </div>
+        </div>}
     </main>
   );
 }
