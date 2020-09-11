@@ -13,10 +13,12 @@ function Main() {
   return (
     <main>
         <DataSelection />
-        <AddButton />
-        <Form />
-        <Filter />
-        <Table />
+        <div>
+          <AddButton />
+          <Form />
+          <Filter />
+          <Table />
+        </div>
     </main>
   );
 }

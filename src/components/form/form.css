@@ -1,0 +1,17 @@
+.addForm {
+    background: rgb(255, 218, 192);
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.addForm div {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+}
+
+.addForm input {
+    border-radius: 2px;
+    border: none;
+    height: 1.5rem;
+}

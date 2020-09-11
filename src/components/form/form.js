@@ -1,8 +1,10 @@
 import React from 'react';
 
+import './form.css'
+
 function Form() {
   return (
-    <form>
+    <form className="addForm">
         <div>
           <label htmlFor="id"> id: </label>
           <input
@@ -20,7 +22,7 @@ function Form() {
           />
         </div>
         <div>
-          <label htmlFor="lastName"> last name </label>
+          <label htmlFor="lastName"> last name: </label>
           <input
             type="text"
             id="lastName"
@@ -28,7 +30,7 @@ function Form() {
           />
         </div>
         <div>
-          <label htmlFor="email"> email </label>
+          <label htmlFor="email"> email: </label>
           <input
             type="email"
             id="email"
@@ -36,7 +38,7 @@ function Form() {
           />
         </div>
         <div>
-          <label htmlFor="phone"> phone </label>
+          <label htmlFor="phone"> phone: </label>
           <input
             type="phone"
             id="phone"
