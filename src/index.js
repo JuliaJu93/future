@@ -8,18 +8,22 @@ import AddButton from './components/add_button/add_button.js';
 import Form from './components/form/form.js';
 import Filter from './components/filter/filter.js';
 import Table from './components/table/table.js';
+import IndicatorLoading from './components/indicator_loading/indicator_loading';
 
 function Main() {
   const [dataForTable, setDataForTable] = useState('');
+  const [idicatorLoading, setIndicatorLoading] = useState(false);
+  const [form, setForm] = useState(false);
   return (
     <main>
-        {!dataForTable && <DataSelection setDataForTable={setDataForTable}/>}
-        {dataForTable && <div>
-          <AddButton />
+        {!dataForTable && !idicatorLoading && <DataSelection setDataForTable={setDataForTable} setIndicatorLoading={setIndicatorLoading}/>}
+        {idicatorLoading && <IndicatorLoading />}
+        <div>
+          <AddButton setForm={setForm}/>
           <Form />
           <Filter />
           <Table />
-        </div>}
+        </div>
     </main>
   );
 }

@@ -4,15 +4,19 @@ import './data_selection.css';
 
 import {dataRequest} from './data_request'
 
-function DataSelection({setDataForTable}) {
+function DataSelection({setDataForTable, setIndicatorLoading}) {
   function smallDataAcquisition() {
+    setIndicatorLoading(true);
     dataRequest(32).then((data) => {
       setDataForTable(data);
+      setIndicatorLoading(false);
     });
   }
   function bigDataAcquisition() {
+    setIndicatorLoading(true);
     dataRequest(1000).then((data) => {
       setDataForTable(data);
+      setIndicatorLoading(false);
     });
   }
   return (
