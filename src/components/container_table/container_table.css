@@ -1,6 +1,14 @@
 .table {
     width: 100%;
 }
+
+.table input {
+    height: 1.1rem;
+    background: url('../../img/filter.png') no-repeat 3px 3px;
+    padding-left: 20px;
+    border-radius: 0.3rem;
+    margin-right: 0.3rem;
+}
 .table table{
     width: 100%;
     border-collapse: collapse;
