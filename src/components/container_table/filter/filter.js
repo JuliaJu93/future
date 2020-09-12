@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FindButton from '../find_button/find_button.js';
+import FindButton from '../../find_button/find_button.js';
 
 function Filter() {
   return (

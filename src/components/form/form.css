@@ -2,8 +2,8 @@
     background: rgb(255, 218, 192);
     border-radius: 5px;
     padding: 0.8rem;
-    margin: 1rem;
-    width: 40%;
+    margin: 1rem 0;
+    width: 50%;
 }
 
 .addForm div {
