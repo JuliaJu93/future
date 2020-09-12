@@ -13,14 +13,15 @@ function Main() {
   const [dataForTable, setDataForTable] = useState('');
   const [idicatorLoading, setIndicatorLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [filteredData, setFilteredData] = useState('');
   return (
     <main>
-        {!dataForTable && !idicatorLoading && <DataSelection setDataForTable={setDataForTable} setIndicatorLoading={setIndicatorLoading}/>}
+        {!dataForTable && !idicatorLoading && <DataSelection setDataForTable={setDataForTable} setIndicatorLoading={setIndicatorLoading} setFilteredData={setFilteredData}/>}
         {idicatorLoading && <IndicatorLoading />}
         <div className="container">
           {!showForm &&<AddButton setShowForm={setShowForm}/>}
           {showForm && <Form />}
-          <ContainerTable dataForTable={dataForTable} />
+          <ContainerTable dataForTable={dataForTable} setDataForTable={setDataForTable} filteredData={filteredData} setFilteredData={setFilteredData} />
         </div>
     </main>
   );

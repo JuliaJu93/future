@@ -1,9 +1,9 @@
 import React from 'react';
 
-function TableBody({ dataForTable }) {
+function TableBody({ filteredData }) {
   let users;
-  if (dataForTable) {
-    users = dataForTable.map((user) => (
+  if (filteredData) {
+    users = filteredData.map((user) => (
       <tr key={user.id+user.firstName}>
         <td>{user.id}</td>
         <td>{user.firstName}</td>

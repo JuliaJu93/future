@@ -3,11 +3,11 @@ import React from 'react';
 import TableHead from './table_head';
 import TableBody from './table_body';
 
-function Table({dataForTable}) {
+function Table({filteredData}) {
   return (
     <table>
         <TableHead />
-        <TableBody dataForTable={dataForTable}/>
+        <TableBody filteredData={filteredData}/>
     </table>
   );
 }
