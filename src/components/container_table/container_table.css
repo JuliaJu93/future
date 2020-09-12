@@ -1,23 +1,24 @@
 .table {
-    width: 100%;
+  width: 100%;
 }
 
 .table input {
-    height: 1.1rem;
-    background: url('../../img/filter.png') no-repeat 3px 3px;
-    padding-left: 20px;
-    border-radius: 0.3rem;
-    margin-right: 0.3rem;
+  height: 1.1rem;
+  background: url('../../img/filter.png') no-repeat 3px 3px;
+  padding-left: 20px;
+  border-radius: 0.3rem;
+  margin-right: 0.3rem;
 }
-.table table{
-    width: 100%;
-    border-collapse: collapse;
+.table table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .table th {
-    background-color: rgb(255, 218, 192);
+  background-color: rgb(255, 218, 192);
 }
 
-.table td, .table th {
-    border: 1px solid rgb(226, 226, 226);
+.table td,
+.table th {
+  border: 1px solid rgb(226, 226, 226);
 }
