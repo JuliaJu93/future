@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {filterData} from '../filter_data'
+import {filterData} from '../filter/filter_data'
 
 function FindButton({searchParameter, setFilteredData, dataForTable}) {
   return (

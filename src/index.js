@@ -10,7 +10,7 @@ import ContainerTable from './components/container_table/container_table.js';
 import IndicatorLoading from './components/indicator_loading/indicator_loading';
 
 function Main() {
-  const [dataForTable, setDataForTable] = useState('');
+  const [dataForTable, setDataForTable] = useState(null);
   const [idicatorLoading, setIndicatorLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [filteredData, setFilteredData] = useState('');

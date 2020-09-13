@@ -1,36 +1,35 @@
 import React from 'react';
 
-import ArrowUpImg from '../arrow_img/arrow_up_img';
-import ArrowDownImg from '../arrow_img/arrow_down_img';
+import arrow_down from '../../../img/arrow_down.png';
+import arrow_up from '../../../img/arrow_up.png';
 
-function TableHead() {
+function TableHead({onClickFirstName, onClickLastName, directionArrowFirstName, directionArrowLastName}) {
+
   return (
         <thead>
             <tr>
                 <th>
                     id
-                    <ArrowUpImg />
-                    <ArrowDownImg />
                 </th>
                 <th>
                     first name
-                    <ArrowUpImg />
-                    <ArrowDownImg />
+                    <button onClick = {onClickFirstName}>
+                        {!directionArrowFirstName &&<img src={arrow_down} alt = 'arrow down'></img>}
+                        {directionArrowFirstName &&<img src={arrow_up} alt = 'arrow up'></img>}
+                    </button>
                 </th>
                 <th>
                     last name
-                    <ArrowUpImg />
-                    <ArrowDownImg />
+                    <button onClick = {onClickLastName}>
+                        {!directionArrowLastName &&<img src={arrow_down} alt = 'arrow down'></img>}
+                        {directionArrowLastName &&<img src={arrow_up} alt = 'arrow up'></img>}
+                    </button>
                 </th>
                 <th>
                     email
-                    <ArrowUpImg />
-                    <ArrowDownImg />
                 </th>
                 <th>
                     phone
-                    <ArrowUpImg />
-                    <ArrowDownImg />
                 </th>
             </tr>
         </thead>
