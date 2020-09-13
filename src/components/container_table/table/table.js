@@ -1,12 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 import TableHead from './table_head';
 import TableBody from './table_body';
 
-function Table({filteredData, dataForTable, setDataForTable}) {
+function Table({filteredData,setDataForTable}) {
   const [directionArrowFirstName, setDirectionArrowFirstName] = useState(false);
   const [directionArrowLastName, setDirectionArrowLastName] = useState(false);
-  const [sortedData, setSortedData] = useState(filteredData);
 
   const changeSortingFirstName = () => {
     setDirectionArrowFirstName(prevValue => !prevValue);
@@ -40,12 +39,12 @@ function Table({filteredData, dataForTable, setDataForTable}) {
   const changeSortingLastName = () => {
     setDirectionArrowLastName(prevValue => !prevValue);
     setDataForTable(prevValue => {
-      if (directionArrowFirstName) {
+      if (directionArrowLastName) {
         prevValue.sort(function (a, b) {
-        if (a.firstName < b.firstName) {
+        if (a.lastName < b.lastName) {
           return 1;
         }
-        if (a.firstName > b.firstName) {
+        if (a.lastName > b.lastName) {
           return -1;
         }
         return 0;
