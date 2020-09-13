@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import TableHead from './table_head';
 import TableBody from './table_body';
 
-function Table({ filteredData, dataForTable, setDataForTable, enteredData}) {
+function Table({ filteredData, dataForTable, setDataForTable}) {
   const [directionArrowFirstName, setDirectionArrowFirstName] = useState(false);
   const [directionArrowLastName, setDirectionArrowLastName] = useState(false);
 
@@ -75,7 +75,7 @@ function Table({ filteredData, dataForTable, setDataForTable, enteredData}) {
         directionArrowFirstName={directionArrowFirstName}
         directionArrowLastName={directionArrowLastName}
       />
-      <TableBody filteredData={filteredData} enteredData={enteredData}/>
+      <TableBody filteredData={filteredData}/>
     </table>
   );
 }

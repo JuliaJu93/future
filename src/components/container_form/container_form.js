@@ -5,7 +5,7 @@ import Form from './form/form.js';
 
 import './container_form.css';
 
-function ContainerForm({setEnteredData}) {
+function ContainerForm({onClickAddInTable}) {
     const [form, setForm] = useState(false);
     const showForm = () => {
         setForm(true);
@@ -13,7 +13,7 @@ function ContainerForm({setEnteredData}) {
   return (
       <div className="form">
           {!form && <AddButton onClickShowForm={showForm}/>}
-          {form && <Form setEnteredData={setEnteredData}/>}
+          {form && <Form onClickAddInTable={onClickAddInTable}/>}
       </div>
   );
 }

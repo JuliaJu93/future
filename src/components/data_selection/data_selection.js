@@ -4,12 +4,13 @@ import './data_selection.css';
 
 import {dataRequest} from './data_request'
 
-function DataSelection({setDataForTable, setIndicatorLoading, setFilteredData}) {
+function DataSelection({setDataForTable, setIndicatorLoading, setFilteredData, setShowDataSelection}) {
   function smallDataAcquisition() {
     setIndicatorLoading(true);
     dataRequest(32).then((data) => {
       setFilteredData(data);
       setDataForTable(data);
+      setShowDataSelection(true);
       setIndicatorLoading(false);
     });
   }
@@ -18,6 +19,7 @@ function DataSelection({setDataForTable, setIndicatorLoading, setFilteredData}) 
     dataRequest(1000).then((data) => {
       setFilteredData(data);
       setDataForTable(data);
+      setShowDataSelection(true);
       setIndicatorLoading(false);
     });
   }

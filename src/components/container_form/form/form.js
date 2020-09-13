@@ -1,25 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function Form({ setEnteredData }) {
+function Form({ onClickAddInTable }) {
   const [id, setId] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [showButtonAdd, setShowButtonAdd] = useState(false);
-
-  const addInTable = () => {
-    setEnteredData((prevValue) => {
-      prevValue.push({
-        id: id,
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        phone: phone,
-      });
-      return prevValue;
-    });
-  };
 
   function handleChange(event) {
     let value = event.target.value;
@@ -39,17 +26,21 @@ function Form({ setEnteredData }) {
       case 'Phone':
         setPhone(value);
         break;
+      default: break;
     }
+  }
+
+  useEffect (() => {
     if (id && firstName && lastName && email && phone) {
       setShowButtonAdd(true);
     } else {
       setShowButtonAdd(false);
     }
-  }
+  }, [id,firstName, lastName, email, phone])
 
   function handleSubmit(event) {
     event.preventDefault();
-    addInTable();
+    onClickAddInTable(id, firstName, lastName, email, phone);
   }
 
   return (
