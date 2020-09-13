@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 
-import { showButtonOfForm } from './show_button_of_form';
-import { addInTable } from './add_in_table';
-
-import './form.css';
-
-function Form() {
+function Form({ setEnteredData }) {
   const [id, setId] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [showButtonAdd, setShowButtonAdd] = useState(false);
+
+  const addInTable = () => {
+    setEnteredData((prevValue) => {
+      prevValue.push({
+        id: id,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+      });
+      return prevValue;
+    });
+  };
 
   function handleChange(event) {
     let value = event.target.value;
@@ -33,10 +41,9 @@ function Form() {
         break;
     }
     if (id && firstName && lastName && email && phone) {
-      showButtonOfForm(setShowButtonAdd, true);
-    }
-    else {
-      showButtonOfForm(setShowButtonAdd, false)
+      setShowButtonAdd(true);
+    } else {
+      setShowButtonAdd(false);
     }
   }
 
@@ -46,7 +53,7 @@ function Form() {
   }
 
   return (
-    <form className="addForm" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="id"> id: </label>
         <input type="text" id="id" name="Id" required onChange={handleChange} />

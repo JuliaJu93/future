@@ -1,10 +1,8 @@
 import React from 'react';
 
-import {filterData} from '../filter/filter_data'
-
-function FindButton({searchParameter, setFilteredData, dataForTable}) {
+function FindButton({onClickFilter}) {
   return (
-    <button onClick={e => filterData(e, searchParameter, setFilteredData, dataForTable)}>Найти</button>
+    <button onClick={onClickFilter}>Найти</button>
   );
 }
 

@@ -8,10 +8,24 @@ function Filter({setSearchParameter, searchParameter, setFilteredData, dataForTa
     setSearchParameter(value.toLowerCase());
   }
 
+  const filterData = () => {
+    if (dataForTable) {
+      let filter = dataForTable.filter(
+        (data) =>
+          String(data.id).indexOf(searchParameter, 0) !== -1 ||
+          data.firstName.toLowerCase().indexOf(searchParameter, 0) !== -1 ||
+          data.lastName.toLowerCase().indexOf(searchParameter, 0) !== -1 ||
+          data.email.toLowerCase().indexOf(searchParameter, 0) !== -1 ||
+          data.phone.indexOf(searchParameter, 0) !== -1
+      );
+      setFilteredData(filter);
+    }
+  }
+
   return (
     <div>
         <input onChange ={handleChange}></input>
-        <FindButton searchParameter = {searchParameter} setFilteredData={setFilteredData} dataForTable={dataForTable}/>
+        <FindButton onClickFilter = {filterData}/>
     </div>
   );
 }

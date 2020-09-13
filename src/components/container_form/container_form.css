@@ -1,4 +1,8 @@
-.addForm {
+.form {
+    width: 70%;
+}
+
+.form form {
     background: rgb(255, 218, 192);
     border-radius: 5px;
     padding: 0.8rem;
@@ -6,13 +10,13 @@
     width: 50%;
 }
 
-.addForm div {
+.form div {
     display: flex;
     flex-direction: column;
     margin: 0.5rem;
 }
 
-.addForm input {
+.form input {
     border-radius: 2px;
     border: none;
     height: 1.5rem;
