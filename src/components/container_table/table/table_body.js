@@ -1,10 +1,10 @@
 import React from 'react';
 
-function TableBody({ filteredData, onClickGettingId}) {
+function TableBody({ filteredData, onClickGettingId }) {
   let users;
   if (filteredData) {
     users = filteredData.map((user) => (
-      <tr onClick={onClickGettingId} key={user.id+user.firstName} >
+      <tr onClick={onClickGettingId} key={user.id + user.firstName}>
         <td id={user.id}>{user.id}</td>
         <td id={user.id}>{user.firstName}</td>
         <td id={user.id}>{user.lastName}</td>
@@ -13,7 +13,7 @@ function TableBody({ filteredData, onClickGettingId}) {
       </tr>
     ));
   }
-return <tbody>{users}</tbody>;
+  return <tbody>{users}</tbody>;
 }
 
 export default TableBody;

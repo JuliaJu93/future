@@ -47,3 +47,9 @@ tbody tr:hover {
   border-radius: 2rem;
   padding: 1rem;
 }
+
+.scroll-table {
+  width: 100%;
+  overflow: auto;
+  height: 1200px;
+}
