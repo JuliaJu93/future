@@ -3,46 +3,45 @@ import React, { useState } from 'react';
 import TableHead from './table_head';
 import TableBody from './table_body';
 
-function Table({ filteredData, dataForTable, setDataForTable}) {
+function Table({ filteredData, setFilteredData, onClickGettingId}) {
   const [directionArrowFirstName, setDirectionArrowFirstName] = useState(false);
   const [directionArrowLastName, setDirectionArrowLastName] = useState(false);
 
   const changeSortingFirstName = () => {
-    if (dataForTable) {
       setDirectionArrowFirstName((prevValue) => !prevValue);
-      setDataForTable((prevValue) => {
+      setFilteredData((prevValue) => {
+        const newValue = [...prevValue];
         if (directionArrowFirstName) {
-          prevValue.sort(function (a, b) {
-            if (a.firstName < b.firstName) {
+          newValue.sort(function (a, b) {
+            if (a.firstName.toLowerCase() < b.firstName.toLowerCase()) {
               return 1;
             }
-            if (a.firstName > b.firstName) {
+            if (a.firstName.toLowerCase() > b.firstName.toLowerCase()) {
               return -1;
             }
             return 0;
           });
         } else {
-          prevValue.sort(function (a, b) {
-            if (a.firstName > b.firstName) {
+          newValue.sort(function (a, b) {
+            if (a.firstName.toLowerCase() > b.firstName.toLowerCase()) {
               return 1;
             }
-            if (a.firstName < b.firstName) {
+            if (a.firstName.toLowerCase() < b.firstName.toLowerCase()) {
               return -1;
             }
             return 0;
           });
         }
-        return prevValue;
+        return newValue;
       });
-    }
   };
 
   const changeSortingLastName = () => {
-    if (dataForTable) {
       setDirectionArrowLastName((prevValue) => !prevValue);
-      setDataForTable((prevValue) => {
+      setFilteredData((prevValue) => {
+        const newValue = [...prevValue];
         if (directionArrowLastName) {
-          prevValue.sort(function (a, b) {
+          newValue.sort(function (a, b) {
             if (a.lastName < b.lastName) {
               return 1;
             }
@@ -52,7 +51,7 @@ function Table({ filteredData, dataForTable, setDataForTable}) {
             return 0;
           });
         } else {
-          prevValue.sort(function (a, b) {
+          newValue.sort(function (a, b) {
             if (a.lastName > b.lastName) {
               return 1;
             }
@@ -62,9 +61,8 @@ function Table({ filteredData, dataForTable, setDataForTable}) {
             return 0;
           });
         }
-        return prevValue;
+        return newValue;
       });
-    }
   };
 
   return (
@@ -75,7 +73,7 @@ function Table({ filteredData, dataForTable, setDataForTable}) {
         directionArrowFirstName={directionArrowFirstName}
         directionArrowLastName={directionArrowLastName}
       />
-      <TableBody filteredData={filteredData}/>
+      <TableBody filteredData={filteredData} onClickGettingId={onClickGettingId}/>
     </table>
   );
 }

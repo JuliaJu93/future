@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import DataSelection from '../data_selection/data_selection.js';
 import ContainerForm from '../container_form/container_form.js';
@@ -9,7 +9,7 @@ function CommonContainer() {
   const [dataForTable, setDataForTable] = useState([]);
   const [showDataSelection, setShowDataSelection] = useState(false);
   const [idicatorLoading, setIndicatorLoading] = useState(false);
-  const [filteredData, setFilteredData] = useState(null);
+  const [filteredData, setFilteredData] = useState([]);
 
   const addInTable = (id, firstName, lastName, email, phone) => {
     setDataForTable((prevValue) => {
@@ -23,13 +23,17 @@ function CommonContainer() {
       });
       return newValue;
     });
-    setFilteredData(dataForTable);
   };
+
+  useEffect (() => {
+    setFilteredData(dataForTable);
+  }, [dataForTable]);
 
   return (
     <main>
       {!showDataSelection && !idicatorLoading && (
         <DataSelection
+            dataForTable={dataForTable}
           setDataForTable={setDataForTable}
           setIndicatorLoading={setIndicatorLoading}
           setFilteredData={setFilteredData}
@@ -41,7 +45,6 @@ function CommonContainer() {
         <ContainerForm onClickAddInTable={addInTable} />
         <ContainerTable
           dataForTable={dataForTable}
-          setDataForTable={setDataForTable}
           filteredData={filteredData}
           setFilteredData={setFilteredData}
         />

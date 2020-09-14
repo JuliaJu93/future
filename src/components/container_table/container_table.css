@@ -21,6 +21,11 @@
   border-collapse: collapse;
 }
 
+tbody tr:hover {
+  background: rgb(247, 246, 246);
+  cursor: pointer;
+}
+
 .table th {
   background-color: rgb(255, 218, 192);
 }
@@ -29,4 +34,16 @@
 .table th {
   border: 1px solid rgb(226, 226, 226);
   padding: 0.5rem;
+}
+
+.selectedUser {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 1rem 0;
+  border: 1px dashed rgb(180, 180, 180);
+  width: 50%;
+  min-width: 20rem;
+  border-radius: 2rem;
+  padding: 1rem;
 }
