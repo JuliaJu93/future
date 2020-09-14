@@ -4,12 +4,14 @@ import DataSelection from '../data_selection/data_selection.js';
 import ContainerForm from '../container_form/container_form.js';
 import ContainerTable from '../container_table/container_table.js';
 import IndicatorLoading from '../indicator_loading/indicator_loading';
+import Error from '../error/error';
 
 function CommonContainer() {
   const [dataForTable, setDataForTable] = useState([]);
-  const [showDataSelection, setShowDataSelection] = useState(false);
+  const [showDataSelection, setShowDataSelection] = useState(true);
   const [idicatorLoading, setIndicatorLoading] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
+  const [error, setError] = useState(false);
 
   const addInTable = (id, firstName, lastName, email, phone) => {
     setDataForTable((prevValue) => {
@@ -31,15 +33,16 @@ function CommonContainer() {
 
   return (
     <main>
-      {!showDataSelection && !idicatorLoading && (
+      {showDataSelection && (
         <DataSelection
-            dataForTable={dataForTable}
           setDataForTable={setDataForTable}
           setIndicatorLoading={setIndicatorLoading}
           setFilteredData={setFilteredData}
           setShowDataSelection={setShowDataSelection}
+          setError={setError}
         />
       )}
+      {error && <Error />}
       {idicatorLoading && <IndicatorLoading />}
       <div className="container">
         <ContainerForm onClickAddInTable={addInTable} />

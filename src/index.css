@@ -21,3 +21,7 @@ button, input[type=submit]{
     cursor: pointer;
     margin: 1rem 0;
 }
+
+.error {
+    color: rgb(230, 76, 38);
+}
